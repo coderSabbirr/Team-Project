@@ -1,7 +1,6 @@
 import '../styles/globals.css'
 
 import App from 'next/app'
-import { Indexlayout } from '../layout'
 import { ResponsiveDrawer } from '../layout/ResponsiveDrawer'
 
 class MyApp extends App {

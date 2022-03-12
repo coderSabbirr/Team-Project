@@ -1,5 +1,4 @@
 import * as React from 'react';
-import Link from 'next/link'
 import PropTypes from 'prop-types';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -18,6 +17,7 @@ import NotificationsNoneOutlinedIcon from "@mui/icons-material/NotificationsNone
 import ChatBubbleOutlineOutlinedIcon from "@mui/icons-material/ChatBubbleOutlineOutlined";
 import ListOutlinedIcon from "@mui/icons-material/ListOutlined";
 import drawerStyle from '../styles/drawer.module.scss'
+import Sidebar from '../Components/Sidebar';
 
 const drawerWidth = 240;
 
@@ -30,48 +30,7 @@ export function ResponsiveDrawer({window,children}) {
 
   const drawer = (
     <div>
-       
-     <Box sx={{p:2,fontSize:'1.3em'}} textAlign="center">
-         admin
-     </Box>
-     
-      <Divider />
-      <Link href="/dash">
-      <Box
-          sx={{
-            backgroundColor: "",
-            "&:hover": {
-              backgroundColor: "#e0e0e0",
-              opacity: [0.9, 0.8, 0.7],
-            },
-            p: 1,
-            m: 1,
-            cursor:'pointer'
-          }}
-          textAlign="center"
-        >
-          <span> dash</span>
-        </Box>
-        </Link>
-        <Link href="/dash/myOrder">
-        <Box
-          sx={{
-            backgroundColor: "",
-            "&:hover": {
-              backgroundColor: "#e0e0e0",
-              opacity: [0.9, 0.8, 0.7],
-            },
-            p: 1,
-            m: 1,
-            cursor:'pointer'
-          }}
-          textAlign="center"
-        >
-          <span> My order</span>
-        </Box>
-        </Link>
-      <Divider />
-     
+        <Sidebar /> 
     </div>
   );
 
