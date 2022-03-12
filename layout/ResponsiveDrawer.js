@@ -44,7 +44,7 @@ export function ResponsiveDrawer({window,children}) {
         sx={{
           width: { sm: `calc(100% - ${drawerWidth}px)` },
           ml: { sm: `${drawerWidth}px` },
-          backgroundColor:'transparent',
+          backgroundColor:'white',
           boxShadow:'none',
           color:"black"  
         }}

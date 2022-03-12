@@ -1,22 +1,21 @@
 import sidebar from '../styles/sidebar.module.scss'
 
 import DashboardIcon from "@mui/icons-material/Dashboard";
-import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
-import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 import CreditCardIcon from "@mui/icons-material/CreditCard";
 import StoreIcon from "@mui/icons-material/Store";
 import InsertChartIcon from "@mui/icons-material/InsertChart";
-import SettingsApplicationsIcon from "@mui/icons-material/SettingsApplications";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
-import SettingsSystemDaydreamOutlinedIcon from "@mui/icons-material/SettingsSystemDaydreamOutlined";
 import PsychologyOutlinedIcon from "@mui/icons-material/PsychologyOutlined";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
-
+import RssFeedIcon from '@mui/icons-material/RssFeed';
+import AddIcon from '@mui/icons-material/Add';
 
 import Link from 'next/link';
+import { useRouter } from 'next/router'
 
 const Sidebar = () => {
+  const router = useRouter();
   return (
     <>
       <div className={sidebar.sidebar}>
@@ -29,35 +28,51 @@ const Sidebar = () => {
             <p className={sidebar.title}>MAIN</p>
             <li>
             <DashboardIcon className={sidebar.icon} />
-              <Link href="/dash">
-              <span>Dashboard</span>
-              </Link>
+            <span  onClick={() => router.push('/dash')}>
+               Dashboard
+           </span>
+              {/* <Link href="/dash">
+               <span>  Dashboard </span>
+              </Link> */}
             </li>
-            <p className={sidebar.title} >LISTS</p>
+            <p className={sidebar.title} >BLOGS</p>
             <li>
-              <PersonOutlineIcon className={sidebar.icon}  />
-              <span>Users</span>
+              <RssFeedIcon className={sidebar.icon}  />
+              <span  onClick={() => router.push('/dash/myBlog')}>
+               My blogs
+           </span>
+              {/* <Link href="dash/myBlog">
+              <span>My Blog</span>
+              </Link> */}
             </li>
             <li>
-              <StoreIcon className={sidebar.icon}  />
-              <span>Products</span>
+              <AddIcon className={sidebar.icon}  />
+              <span  onClick={() => router.push('/dash/createBlog')}>
+              Create Blog
+           </span>
             </li>
 
+            <p className={sidebar.title} >Gallery</p>
+            <li>
+              <RssFeedIcon className={sidebar.icon}  />
+              <span>My Gallery</span>
+            </li>
+            <li>
+              <AddIcon className={sidebar.icon}  />
+              <span>Add Image</span>
+            </li>
+
+           
+            <p className={sidebar.title} >ORDERS</p>
             <li>
             <CreditCardIcon className={sidebar.icon}  />
-                <Link href="dash/myOrder">
-              <span>Orders</span>
-              
-                </Link>
-            </li>
-            <p className={sidebar.title} >USEFUL</p>
-            <li>
-              <InsertChartIcon className={sidebar.icon}  />
-              <span>Stats</span>
-            </li>
-            <li>
-              <NotificationsNoneIcon className={sidebar.icon}  />
-              <span>Notifications</span>
+            <span  onClick={() => router.push('/dash/myOrder')}>
+               My Orders
+           </span>
+
+                {/* <Link href="dash/myOrder">
+                  My Orders
+                </Link> */}
             </li>
             <p className={sidebar.title} >USER</p>
             <li>
