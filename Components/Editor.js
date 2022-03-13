@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Container from '@mui/material/Container';
+
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
@@ -8,6 +8,9 @@ import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from
 const Editor = () => {
     const [value,setValue] = useState('');
     const [parseValue,setParseValue] = useState([]);
+
+    const dt = new Date();
+  const stringDt = dt.toDateString();
 
     // const [backendData, setBackendData] = useState({ type:parseValue[0]?.type,
     //     data: parseValue[0]?.props?.children[0]});
@@ -19,14 +22,14 @@ const Editor = () => {
         setParseValue(ReactHtmlParser(data));
     }
 
-    const backendData={
-        jsonData:value
+    const initialInfo={
+        jsonData:value,
+        date: stringDt,
     }
    
     
   return (
     <>
-        <Container>
             <CKEditor
             editor={ClassicEditor}
             onChange={handleChange}
@@ -34,7 +37,6 @@ const Editor = () => {
             <div>
                 {ReactHtmlParser(value)}
             </div>
-        </Container>
     </>
   )
 }
