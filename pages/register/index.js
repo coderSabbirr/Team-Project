@@ -53,6 +53,18 @@ export default function Register () {
     inputData[e.target.name] = e.target.value;
   }
 
+  const postData = async (submitData) => {
+    const response = await fetch('https://salty-beyond-87590.herokuapp.com/api/register', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(submitData)
+    });
+    const data = await response.json();
+    console.log(data);
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
     // console.log(inputData);
@@ -60,11 +72,12 @@ export default function Register () {
       const submitData = {
         name: inputData.name,
         email: inputData.email,
-        pass: inputData.password,
+        password: inputData.password,
         role: inputData.role
       }
-      console.log(submitData);
-      // post submitData
+      // console.log(submitData);
+      // post submitData to register
+      postData(submitData);
     } else {
       window.alert('Passwords are not matched');
     }
