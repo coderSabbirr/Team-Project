@@ -53,10 +53,23 @@ export default function Login () {
     inputData[e.target.name] = e.target.value;
   }
 
+  const postData = async (submitData) => {
+    const response = await fetch('https://salty-beyond-87590.herokuapp.com/api/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(submitData)
+    });
+    const data = await response.json();
+    console.log(data);
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(inputData);
     // post to api
+    postData(inputData);
   }
 
   const goToRegister = () => {
