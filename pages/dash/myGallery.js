@@ -39,6 +39,9 @@ const myGallery = () => {
       ];
   return (
     <div>
+         <div style={{marginBottom:'15px',fontWeight:'500',color:'grey'}}>
+          My Gallery
+      </div>
         <List
     type="gallery"
     rows={rows}

@@ -19,8 +19,14 @@ const List = ({type,rows}) => {
             break;
             case "gallery":
               data = {
-                title: "Gallery Title",
+                title: "Image Title",
                 coverTitle: "Gallery Image"
+              };
+              break;
+              case "order":
+              data = {
+                title: "Order Title",
+                coverTitle: "Order Image"
               };
               break;
           
@@ -37,8 +43,13 @@ const List = ({type,rows}) => {
             <TableCell className={listStyle.tableCell}>Tracking ID</TableCell>
             <TableCell className={listStyle.tableCell}>{data.coverTitle}</TableCell>
             <TableCell className={listStyle.tableCell}>{data.title}</TableCell>
+            {
+              type === 'order' &&
+              <TableCell className={listStyle.tableCell}>Order type</TableCell>
+            }
             <TableCell className={listStyle.tableCell}>Date</TableCell>
             <TableCell className={listStyle.tableCell}>Action</TableCell>
+            
           </TableRow>
         </TableHead>
         <TableBody>
@@ -50,7 +61,12 @@ const List = ({type,rows}) => {
                   <img src={row.img} alt="" className={listStyle.image} />
                 </div>
               </TableCell>
+              
               <TableCell className={listStyle.tableCell}>{row.title}</TableCell>
+              {
+                type === 'order' &&
+                <TableCell className={listStyle.tableCell}>{row.hireAs}</TableCell>
+              }
               <TableCell className={listStyle.tableCell}>{row.date}</TableCell>
               
             </TableRow>
