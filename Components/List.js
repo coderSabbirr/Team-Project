@@ -13,13 +13,13 @@ const List = ({type,rows}) => {
     switch(type){
         case "blog":
             data = {
-              title: "My Blog",
+              title: "Blog Title",
               coverTitle: "Blog Image"
               };
             break;
             case "gallery":
               data = {
-                title: "My Gallery",
+                title: "Gallery Title",
                 coverTitle: "Gallery Image"
               };
               break;

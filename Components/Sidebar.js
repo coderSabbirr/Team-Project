@@ -20,7 +20,7 @@ const Sidebar = () => {
     <>
       <div className={sidebar.sidebar}>
         <div className={sidebar.top}>
-          <span className={sidebar.logo}>Freelancer</span>
+          <span className={sidebar.logo}>Admin</span>
         </div>
         <hr />
         <div className={sidebar.center}>
@@ -55,7 +55,9 @@ const Sidebar = () => {
             <p className={sidebar.title} >Gallery</p>
             <li>
               <RssFeedIcon className={sidebar.icon}  />
-              <span>My Gallery</span>
+              <span  onClick={() => router.push('/dash/myGallery')}>
+               My Gallery
+           </span>
             </li>
             <li>
               <AddIcon className={sidebar.icon}  />
@@ -67,7 +69,7 @@ const Sidebar = () => {
             <li>
             <CreditCardIcon className={sidebar.icon}  />
             <span  onClick={() => router.push('/dash/myOrder')}>
-               My Orders
+               Orders history
            </span>
 
                 {/* <Link href="dash/myOrder">
@@ -81,7 +83,9 @@ const Sidebar = () => {
             </li>
             <li>
               <ExitToAppIcon className={sidebar.icon}  />
-              <span>Logout</span>
+              <span  onClick={() => router.push('/')}>
+              Logout
+           </span>
             </li>
           </ul>
         </div>
