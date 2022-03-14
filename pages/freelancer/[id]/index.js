@@ -131,7 +131,7 @@ const frellancerDetails = () => {
     const [galleryImg,setGalleryImg] = React.useState(photosGallery);
     
     const currentFreelancer = freelancers.find((freelancer) => freelancer.id === id);
-  galleryImg.splice(0,4);
+    const newGallery = galleryImg.splice(0,5);
     console.log(copyData)
   return (
     <div className={style.freelancer} > frellancerDetails 
@@ -154,14 +154,14 @@ const frellancerDetails = () => {
         <div style={{marginTop:'40px'}}>
         <div className={galleryStyle.photos}>
                 {
-                    galleryImg?.map(photo=> 
+                    newGallery?.map(photo=> 
                         <Singlephoto key={photo.img} photo={photo}/>
                         )
                 }
             </div>
             {
-            copyData.length >5 &&
-            <Button variant="outlined" >
+            copyData?.length >6 &&
+            <Button sx={{m:3}} variant="outlined" >
              See all image
             </Button>
             }
