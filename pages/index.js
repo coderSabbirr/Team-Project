@@ -1,5 +1,15 @@
+<<<<<<< HEAD
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
+=======
+import Banner from "../Components/Banner/Banner";
+import Footer from "../Components/Footer/Footer";
+import AllFrelancers from "../Components/Frelancers/AllFrelancers/AllFrelancers";
+import Blogs from "../Components/HomeBlog/Blogs";
+import Navbar from "../Components/Navbar/Navbar";
+import PhotoCollection from "../Components/PhotoCollection/PhotoCollection";
+import PhotomaneaBox from "../Components/PhotomaneaBox/PhotomaneaBox";
+>>>>>>> tunvir
 
 export default function Home() {
   return (
@@ -10,6 +20,7 @@ export default function Home() {
       <AllFrelancers/>
       <PhotomaneaBox/>
       <PhotoCollection/>
+<<<<<<< HEAD
 =======
     <div className={styles.container}>
       <Head>
@@ -26,6 +37,10 @@ export default function Home() {
         
       </footer>
 >>>>>>> tahrimur_rashid
+=======
+      <Blogs/>
+      <Footer/>
+>>>>>>> tunvir
     </div>
   )
 }
