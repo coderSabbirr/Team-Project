@@ -8,8 +8,8 @@
    grid-template-rows: 1fr 1fr 1fr 1fr;
    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
    gap: 0px;
-   height: 600px;
-   overflow: hidden;
+   height: 100vh;
+   /* overflow: hidden; */
 }
 .singlePhoto{
     border: 2px solid rgb(245, 183, 13);
