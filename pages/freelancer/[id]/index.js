@@ -1,4 +1,8 @@
 import React from 'react';
+import { useRouter } from 'next/router';
+import Grid from '@mui/material/Grid';
+import style from '../../../styles/frellancerDetails.module.scss'
+
 
 
 const freelancers=[
@@ -42,8 +46,31 @@ const freelancers=[
 
 
 const frellancerDetails = () => {
+    const router = useRouter();
+    const {id} = router.query;
+    
+    const currentFreelancer = freelancers.find((freelancer) => freelancer.id === id);
+
+    console.log(currentFreelancer)
   return (
-    <div> frellancerDetails </div>
+    <div className={style.freelancer} > frellancerDetails 
+         <Grid sx={{mt:12,ml:6}} container spacing={2}>
+        <Grid className={style.profile} item md={4} xs={6}>
+          <div className={style.profileImg}>
+            <img src={currentFreelancer?.img} />      
+        </div> 
+        <div className={style.profiletxt}>
+            <div> <bold>Name</bold> </div>
+            <div>{currentFreelancer?.name} </div>
+            <div> <bold>Title</bold></div>
+            <div>{currentFreelancer?.title}</div>
+        </div>
+        </Grid>
+        <Grid item md={6} xs={12}>
+          
+        </Grid>
+      </Grid>
+    </div>
   )
 }
 
