@@ -1,9 +1,12 @@
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/router';
+import CircularProgress from '@mui/material/CircularProgress';
+import { useState } from 'react';
 
 export default function Login () {
   const router = useRouter();
+  const [isLoading, setIsLoading] = useState(false);
 
   const inputData = {};
 
@@ -54,6 +57,7 @@ export default function Login () {
   }
 
   const postData = async (submitData) => {
+    setIsLoading(true);
     const response = await fetch('https://salty-beyond-87590.herokuapp.com/api/login', {
       method: 'POST',
       headers: {
@@ -68,6 +72,7 @@ export default function Login () {
       localStorage.setItem('displayName', data.user.name);
       localStorage.setItem('email', data.user.email);
       localStorage.setItem('role', data.user.role);
+      setIsLoading(false);
       router.push('/');
     }
   }
@@ -94,6 +99,7 @@ export default function Login () {
             </Box>
           </Box>
           <br/> <br/>
+          {/* Login Form */}
           <Typography sx={{ textAlign: 'center' }} variant="h5">Please Login</Typography> <br/>
           <form onSubmit={handleSubmit}>
             <input style={inputStyle} onBlur={handleData} type="email" name="email" placeholder="Email" required/> <br/>
@@ -101,6 +107,9 @@ export default function Login () {
             <button style={submitButton} type="submit">Login</button> <br/>
             <span>Do not have an account? <span style={registerLink} onClick={goToRegister}>Create one here</span></span>
           </form>
+          {isLoading && <Box sx={{ display: 'flex', jusfityContent: 'center' }}>
+            <CircularProgress />
+          </Box>}
         </Box>
       </Box>
     </Box>
