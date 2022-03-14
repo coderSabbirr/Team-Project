@@ -4,11 +4,49 @@ import React from 'react';
 import Link from 'next/link';
 import styles from './Navbar.module.css'
 
-
+const newPages =[
+  {
+    navItem:'Home',
+    link:'/'
+  },
+  {
+    navItem:'About',
+    link:'/about'
+  },
+  {
+    navItem:'Frelancers',
+    link:'/freelancer'
+  },
+  {
+    navItem:'Gallery',
+    link:'/gallery'
+  },{
+    navItem:'Blogs',
+    link:'/blogs'
+  },
+  {
+    navItem:'Contact',
+    link:'/contact'
+  },
+]
+const newSettings = [
+  {
+    navItem:'Profile',
+    link:'/profile'
+  },
+  {
+    navItem:'Account',
+    link:'/account'
+  },
+  {
+    navItem:'Dashboard',
+    link:'/dash'
+  },
+]
 const pages = ['Home', 'About', 'Frelancers','Gallery','Blogs','Contact'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
-const Navbar = () => {
+const Navbar = ({children}) => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -28,6 +66,7 @@ const Navbar = () => {
   };
 
   return (
+    <>
     <AppBar position="static" className={styles.navbar}>
       <Container maxWidth="xl" sx={{py:2, borderBottom: 1}}>
         <Toolbar sx={{px:5}} disableGutters>
@@ -70,9 +109,12 @@ const Navbar = () => {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+              {newPages.map((page) => (
+                <MenuItem key={page.link} onClick={handleCloseNavMenu}>
+                  <Link href={page.link}>
+                  <Typography textAlign="center">{page.navItem}</Typography>
+                  </Link>
+                  
                 </MenuItem>
               ))}
             </Menu>
@@ -110,7 +152,7 @@ const Navbar = () => {
                     </Button>
                   </ListItemText>
                 </Link>
-                <Link href="/">
+                <Link href="/gallery">
                   <ListItemText>
                     <Button className={styles.navLink} sx={{fontSize: 17,color:'white'}}>
                        Gallery
@@ -158,9 +200,11 @@ const Navbar = () => {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+              {newSettings.map((setting) => (
+                <MenuItem key={setting.link} onClick={handleCloseUserMenu}>
+                  <Link href={setting.link}>
+                  <Typography textAlign="center">{setting.navItem}</Typography>
+                  </Link>
                 </MenuItem>
               ))}
             </Menu>
@@ -168,6 +212,8 @@ const Navbar = () => {
         </Toolbar>
       </Container>
     </AppBar>
+    {children}
+    </>
   );
 };
 export default Navbar;

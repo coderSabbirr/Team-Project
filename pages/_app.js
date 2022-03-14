@@ -2,6 +2,7 @@ import '../styles/globals.css'
 
 import App from 'next/app'
 import { ResponsiveDrawer } from '../layout/ResponsiveDrawer'
+import Navbar from '../Components/Navbar/Navbar'
 
 class MyApp extends App {
   render() {
@@ -16,7 +17,9 @@ class MyApp extends App {
     }
 
     return (
-        <Component {...pageProps}></Component>
+      <Navbar>
+           <Component {...pageProps}></Component>
+      </Navbar>    
     )
   }
 }

@@ -8,7 +8,7 @@ const Singlephoto = (props) => {
     return (
         <div className={styles.singlePhoto}>
             <div className={styles.galleryImg}>
-                <img src={img} alt="" />
+                <img src={img} alt="gallery image" />
             </div>
             <div className={styles.photoLink}>
                 <Typography variant="h1" sx={{color:'white',display:'flex', justifyContent:'center',width:'100%',height:'100%',alignItems: 'center'}}><Link className={styles.linkphoto} href='/'>+</Link></Typography>

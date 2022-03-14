@@ -7,7 +7,7 @@ import PhotomaneaBox from "../Components/PhotomaneaBox/PhotomaneaBox";
 export default function Home() {
   return (
     <div className="main-container">
-      <Navbar/>
+      {/* <Navbar/> */}
       <Banner/>
       <AllFrelancers/>
       <PhotomaneaBox/>
