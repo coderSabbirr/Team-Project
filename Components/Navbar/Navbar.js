@@ -65,6 +65,8 @@ const Navbar = ({children}) => {
     setAnchorElUser(null);
   };
 
+  const isLoggedin = true;
+
   return (
     <>
     <AppBar position="static" className={styles.navbar}>
@@ -177,13 +179,23 @@ const Navbar = ({children}) => {
             </List>
           </Typography>
           </Box>
-
-          <Box sx={{ flexGrow: 0 }}>
+          {
+            !isLoggedin?
+            <Link style={{flexGrow: 0 }} href="/login">
+                  <ListItemText>
+                    <Button className={styles.navLink} sx={{fontSize: 17,color:'white'}}>
+                       Login
+                    </Button>
+                  </ListItemText>
+            </Link>
+            :
+            <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
               </IconButton>
             </Tooltip>
+  
             <Menu
               sx={{ mt: '45px' }}
               id="menu-appbar"
@@ -209,6 +221,8 @@ const Navbar = ({children}) => {
               ))}
             </Menu>
           </Box>
+          }
+          
         </Toolbar>
       </Container>
     </AppBar>
