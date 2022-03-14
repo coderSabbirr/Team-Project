@@ -28,7 +28,8 @@ export default function Register () {
     borderRadius: '15px',
     marginBottom: '10px',
     outline: 'none',
-    border: 'none'
+    border: 'none',
+    fontSize: '10px'
   }
 
   const submitButton = {
@@ -62,13 +63,23 @@ export default function Register () {
       body: JSON.stringify(submitData)
     });
     const data = await response.json();
-    console.log(data);
+    // console.log(data);
+    if (data.success === true) {
+      // console.log(data.user);
+      localStorage.setItem('displayName', data.user.name);
+      localStorage.setItem('email', data.user.email);
+      localStorage.setItem('role', data.user.role);
+      router.push('/');
+    }
   }
 
   const handleSubmit = (e) => {
     e.preventDefault();
     // console.log(inputData);
     if (inputData.password === inputData.confirmPassword) {
+      if (inputData.password.length < 8) {
+        window.alert('')
+      }
       const submitData = {
         name: inputData.name,
         email: inputData.email,
@@ -102,7 +113,7 @@ export default function Register () {
           <form onSubmit={handleSubmit}>
             <input style={inputStyle} onBlur={handleData} type="text" name="name" placeholder="Full Name" required/> <br/>
             <input style={inputStyle} onBlur={handleData} type="email" name="email" placeholder="Email" required/> <br/>
-            <input style={inputStyle} onBlur={handleData} type="password" name="password" placeholder="Create Password" required/> <br/>
+            <input style={inputStyle} onBlur={handleData} type="password" name="password" placeholder="Create Password (min 8 letters/symbols/numbers)" required/> <br/>
             <input style={inputStyle} onBlur={handleData} type="password" name="confirmPassword" placeholder="Confirm Password" required/> <br/>
             <label>Upload Profile Image: </label>
             <input type="file" name="image"/> <br/> <br/>
