@@ -1,9 +1,5 @@
-import { Grid, Typography } from '@mui/material';
-import { Box } from '@mui/system';
 import React from 'react';
-import styles from '../Frelancer.module.css'
-import Frelancer from '../Frelancer/Frelancer';
-import Link from 'next/link';
+
 
 const freelancers=[
     {
@@ -44,31 +40,11 @@ const freelancers=[
     },
 ]
 
-const AllFrelancers = () => {
-    return (
-        <div className={styles.freelancer} >
-            <>
-                <Box  sx={{padding: 10, textAlign: 'center'}}>
-                    <Typography sx={{color: 'red'}}>
-                        FreeLancers
-                    </Typography>
-                    <Typography className={styles.heading} variant='h2'>
-                    Our Top Level Photographar
-                    </Typography>
-                </Box>
-            </>
-            <Grid container direction="col" columnSpacing={{ }}>
-                {
-                    freelancers.map(frelancer=> 
-                       
-                            <Frelancer key={frelancer.id} frelancer={frelancer}/>
 
-                            )
-                }
-            </Grid>
-            
-        </div>
-    );
-};
+const frellancerDetails = () => {
+  return (
+    <div> frellancerDetails </div>
+  )
+}
 
-export default AllFrelancers;
+export default frellancerDetails
