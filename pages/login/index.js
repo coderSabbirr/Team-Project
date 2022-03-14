@@ -62,7 +62,14 @@ export default function Login () {
       body: JSON.stringify(submitData)
     });
     const data = await response.json();
-    console.log(data);
+    // console.log(data);
+    if (data.success === true) {
+      // console.log(data.user);
+      localStorage.setItem('displayName', data.user.name);
+      localStorage.setItem('email', data.user.email);
+      localStorage.setItem('role', data.user.role);
+      router.push('/');
+    }
   }
 
   const handleSubmit = (e) => {
