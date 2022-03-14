@@ -24,7 +24,7 @@ const photosGallery = [
 
 const PhotoCollection = () => {
     return (
-        <div>
+        <Box sx={{py:5}}>
             <Box  sx={{padding: 10, textAlign: 'center'}}>
                 <Typography sx={{color: 'red'}}>
                     Photography
@@ -41,7 +41,7 @@ const PhotoCollection = () => {
                         )
                 }
             </div>
-        </div>
+        </Box>
     );
 };
 
