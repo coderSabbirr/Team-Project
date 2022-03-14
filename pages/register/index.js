@@ -114,6 +114,7 @@ export default function Register () {
             </Box>
           </Box>
           <br/> <br/>
+          {/* Register Form */}
           <Typography sx={{ textAlign: 'center' }} variant="h5">Please Register</Typography> <br/>
           <form onSubmit={handleSubmit}>
             <input style={inputStyle} onBlur={handleData} type="text" name="name" placeholder="Full Name" required/> <br/>

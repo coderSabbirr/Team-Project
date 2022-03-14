@@ -99,6 +99,7 @@ export default function Login () {
             </Box>
           </Box>
           <br/> <br/>
+          {/* Login Form */}
           <Typography sx={{ textAlign: 'center' }} variant="h5">Please Login</Typography> <br/>
           <form onSubmit={handleSubmit}>
             <input style={inputStyle} onBlur={handleData} type="email" name="email" placeholder="Email" required/> <br/>
