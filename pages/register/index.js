@@ -1,9 +1,12 @@
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import { useRouter } from 'next/router';
+import CircularProgress from '@mui/material/CircularProgress';
+import { useState } from 'react';
 
 export default function Register () {
   const router = useRouter();
+  const [isLoading, setIsLoading] = useState(false);
 
   const inputData = {};
 
@@ -55,6 +58,7 @@ export default function Register () {
   }
 
   const postData = async (submitData) => {
+    setIsLoading(true);
     const response = await fetch('https://salty-beyond-87590.herokuapp.com/api/register', {
       method: 'POST',
       headers: {
@@ -69,6 +73,7 @@ export default function Register () {
       localStorage.setItem('displayName', data.user.name);
       localStorage.setItem('email', data.user.email);
       localStorage.setItem('role', data.user.role);
+      setIsLoading(false);
       router.push('/');
     }
   }
@@ -101,7 +106,7 @@ export default function Register () {
   return (
     <Box sx={{ width: '100%'}} height="100vh" style={gradeintBackground}>
       <Box sx={{display: 'flex', width: '100%', height: '100%', justifyContent: 'center', alignItems: 'center'}}>
-        <Box sx={{width: 300, height: 650, p: '10px', borderRadius: '10px' }} style={transparentBackground}>
+        <Box sx={{width: 300, height: 670, p: '10px', borderRadius: '10px' }} style={transparentBackground}>
           <br/>
           <Box>
             <Box sx={{ width: '150', height: '150', m: '0 auto', display: 'flex', justifyContent: 'center' }}>
@@ -124,6 +129,9 @@ export default function Register () {
             <button style={submitButton} type="submit">Register</button> <br/>
             <span>Already have an account? <span style={registerLink} onClick={goToRegister}>Login here</span></span>
           </form>
+          {isLoading && <Box sx={{ display: 'flex', jusfityContent: 'center' }}>
+            <CircularProgress />
+          </Box>}
         </Box>
       </Box>
     </Box>
