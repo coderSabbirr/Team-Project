@@ -1,32 +1,26 @@
-import '../styles/globals.css'
-
-<<<<<<< HEAD
-import App from 'next/app'
-import { ResponsiveDrawer } from '../layout/ResponsiveDrawer'
-import Navbar from '../Components/Navbar/Navbar'
+import App from "next/app";
+import Navbar from "../Components/Navbar/Navbar";
+import { ResponsiveDrawer } from "../layout/ResponsiveDrawer";
+import "../styles/globals.css";
 
 class MyApp extends App {
   render() {
-    const { Component, pageProps, router } = this.props
+    const { Component, pageProps, router } = this.props;
 
-    if (router.pathname.startsWith('/dash')) {
+    if (router.pathname.startsWith("/dash")) {
       return (
-        <ResponsiveDrawer >
-           <Component {...pageProps}></Component>
-       </ResponsiveDrawer>
-      )
+        <ResponsiveDrawer>
+          <Component {...pageProps}></Component>
+        </ResponsiveDrawer>
+      );
     }
 
     return (
       <Navbar>
-           <Component {...pageProps}></Component>
-      </Navbar>    
-    )
+        <Component {...pageProps}></Component>
+      </Navbar>
+    );
   }
-=======
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
->>>>>>> tahrimur_rashid
 }
 
-export default MyApp
+export default MyApp;
