@@ -123,6 +123,7 @@ let photosGallery = [
     },
 ]
 
+const newCode = 2;
 
 const frellancerDetails = () => {
     const router = useRouter();
